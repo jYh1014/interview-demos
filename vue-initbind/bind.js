@@ -1,4 +1,5 @@
 function Vue(options){
+  debugger
   this.data = options.data
   var id = options.el
   var dom = nodeToFragment(document.getElementById(id), this)
