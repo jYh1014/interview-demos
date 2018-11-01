@@ -21,7 +21,6 @@ let mapArr3 = mapArr1.map(item =>
 
 //附：实现原理
 Array.prototype.selfMap = function(fn, arr){
-  console.log(this)
   var newArr = []
   for(var i = 0; i < this.length; i++){
     if(arr){
@@ -33,6 +32,8 @@ Array.prototype.selfMap = function(fn, arr){
   return newArr
 }
 let newdata = mapArr1.selfMap(function(item, index, arr){
+  console.log(this,arr)
+  item.a = 100
   return item 
 },mapArr1)
 console.log(newdata)
