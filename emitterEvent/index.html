@@ -17,15 +17,14 @@
 
 <body>
    <div id="app">
-    <input type="text" v-model="text">
-    {{text}}
    </div>
 </body>
 
-<script type="text/javascript" src="./bind.js"></script>
+<script type="text/javascript" src="./EmitterEvent.js"></script>
 <script>
-    let a = {firstchild: '1',firstchild:'2'}
-    let b
-    console.log(a.firstchild)
-</script>   
+  let fun = function(){
+    console.log(1111)
+  }
+  // console.log([fun])
+</script>
 </html>
