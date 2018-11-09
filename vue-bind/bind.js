@@ -1,3 +1,7 @@
+//修改输入框内容 => 在事件回调函数中修改属性值 => 触发属性的set方法
+//发出通知dep.notify() => 触发订阅者的update方法 => 更新视图
+//发布者发出通知 => 主题对象收到通知并推送给订阅者 => 订阅者执行相应操作
+
 function defineReactive(obj, key, val) {
   var dep = new Dep()
   Object.defineProperty(obj, key, {
@@ -21,7 +25,7 @@ function observe(obj, vm) {
     defineReactive(vm, key, obj[key])
   })
 }
-function Dep(){
+function Dep(){//一个主题对象，收到通知推送给订阅者，data中的每一个属性生成一个主题对象dep
   this.subs = []
 }
 Dep.prototype = {
@@ -72,7 +76,7 @@ function compile(node, vm) {
     }
   }
 }
-function Watcher(vm,node,name){
+function Watcher(vm,node,name){//订阅者 为每个与数据绑定相关的节点生成一个订阅者watcher，watcher会将自己添加到相应属性的dep中
   Dep.target = this
   this.node = node
   this.name = name
