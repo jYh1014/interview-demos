@@ -23,7 +23,7 @@ const obj = {};
 
 const newObj = new Proxy(obj, {
   get: function(target, key, receiver) {
-    console.log(`getting ${key}!`);
+    console.log(`getting ${key}!${receiver}`);
     return Reflect.get(target, key, receiver);
   },
   set: function(target, key, value, receiver) {

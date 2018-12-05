@@ -51,7 +51,7 @@ function nodeToFragment(node, vm) {
 }
 
 function compile(node, vm) {
-  var reg = /\{\{(.*)\}\}/
+  var reg = /\{\{(.*)\}\}/ //匹配 {{}}
   //节点类型为元素
   if (node.nodeType == 1) {
     var attr = node.attributes
